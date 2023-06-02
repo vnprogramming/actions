@@ -5,9 +5,14 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
+      - name: Hello world action
+        env: # Or as an environment variable
+          super_secret: ${{ secrets.SUPER_GITHUB_TOKEN }}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+      - run: echo $super_secret
+      
