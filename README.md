@@ -35,7 +35,7 @@ JEST_VERBOSE=yes yarn test  # useful for test output debugging
 
 ## Debugging
 
-If you run into a issue you wish to report, it becomes a lot easier to trace the cause if debug logs are made available. You can [enable debug logs](https://github.com/actions/toolkit/blob/master/docs/action-debugging.md) in your GitHub repository by setting the `ACTIONS_STEP_DEBUG` secret to `true`.
+If you run into a issue you wish to report, it becomes a lot easier to trace the cause if debug logs are made available. You can [enable debug logs](https://github.com/actions/toolkit/blob/master/docs/action-debugging.md) in your GitHub repository by setting the `ACTIONS_STEP_DEBUG` secret to `true`!.
 
 After enabling debug logging you can link to the log in your issue. For private repositories you have the option of including the raw text log, or securely messaging it to me through [keybase](https://keybase.io/marvinpinto).
 
