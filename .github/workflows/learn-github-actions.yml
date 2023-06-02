@@ -5,12 +5,14 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello world action
-        shell: bash
-        env: # Or as an environment variable
-          a: ${{ secrets.SUPER_GITHUB_TOKEN }}
+      - name: Set env as secret
+        env:
+          MY_VAL: ${{ secrets.SUPER_GITHUB_TOKEN }}
         run: |
-          echo $a
-          cat $a 
-          ls $a
+          import os
+          data = open("file", "w")
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+            data.write(q)
+        shell: python
       
