@@ -1,18 +1,14 @@
-name: learn-github-actions-1
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push, workflow_dispatch]
+on:
+  issues:
+    types:
+      - opened
+
 jobs:
-  display-secret:
+  label_issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Set env as secret
-        env:
-          MY_VAL: ${{ secrets.SUPER_GITHUB_TOKEN }}
+      - env:
+          GITHUB_TOKEN: ${{ secrets.SUPER_GITHUB_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
-          import os
-          data = open("file", "w")
-          for q in (os.getenv("MY_VAL")):
-            print(q)
-            data.write(q)
-        shell: python
-      
+          gh issue edit $ISSUE_URL --add-label "triage"
